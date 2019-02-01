@@ -9,7 +9,7 @@
  * @license http://opensource.org/licenses/MIT MIT License
  */
 
-namespace eArc\Tree\Traits;
+namespace eArc\Observer\Traits;
 
 use eArc\Observer\Exception\NoValidListenerException;
 use eArc\Observer\Interfaces\ListenerInterface;

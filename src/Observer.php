@@ -12,7 +12,7 @@
 namespace eArc\Observer;
 
 use eArc\Observer\Interfaces\ObserverInterface;
-use eArc\Tree\Traits\ObserverTrait;
+use eArc\Observer\Traits\ObserverTrait;
 
 /**
  * Observer implements the listenable nature of the observer interface.

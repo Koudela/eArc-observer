@@ -1,0 +1,23 @@
+{
+  "name": "earc/observer",
+  "description": "eArc - the explicit architecture framework - observer component",
+  "type": "library",
+  "license": "MIT",
+  "version": "0.0-ALPHA",
+  "authors": [
+    {
+      "name": "Thomas Koudela",
+      "email": "thomas@koudela.net"
+    }
+  ],
+  "minimum-stability": "dev",
+  "prefer-stable" : true,
+  "require": {
+    "php": "^7.2"
+  },
+  "autoload": {
+    "psr-4" : {
+      "eArc\\Observer\\" : "src"
+    }
+  }
+}

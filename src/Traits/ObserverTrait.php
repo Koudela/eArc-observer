@@ -1,7 +1,7 @@
 <?php
 /**
  * e-Arc Framework - the explicit Architecture Framework
- * observer component
+ * observer blueprint
  *
  * @package earc/observer
  * @link https://github.com/Koudela/eArc-observer/
@@ -15,6 +15,9 @@ use eArc\Observer\Exception\NoValidListenerException;
 use eArc\Observer\Interfaces\ListenerInterface;
 use eArc\Observer\Interfaces\ObserverInterface;
 
+/**
+ * Generic observer trait. Always use the observer interface, too.
+ */
 trait ObserverTrait
 {
     /** @var float[] */

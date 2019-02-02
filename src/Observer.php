@@ -1,7 +1,7 @@
 <?php declare(strict_types=1);
 /**
  * e-Arc Framework - the explicit Architecture Framework
- * observer component
+ * observer blueprint
  *
  * @package earc/observer
  * @link https://github.com/Koudela/eArc-observer/

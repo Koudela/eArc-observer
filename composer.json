@@ -1,6 +1,6 @@
 {
   "name": "earc/observer",
-  "description": "eArc - the explicit architecture framework - observer component",
+  "description": "eArc - the explicit architecture framework - observer blueprint",
   "type": "library",
   "license": "MIT",
   "version": "0.0-ALPHA",

@@ -12,6 +12,7 @@
 namespace eArc\Observer\Traits;
 
 use eArc\Observer\Exception\NoValidListenerException;
+use eArc\Observer\Interfaces\BaseEventInterface;
 use eArc\Observer\Interfaces\ListenerInterface;
 use eArc\Observer\Interfaces\ObserverInterface;
 
@@ -30,7 +31,7 @@ trait ObserverTrait
      * @inheritdoc
      */
     public function callListeners(
-        $payload,
+        BaseEventInterface $event,
         ?int $type = null,
         ?callable $preInitFilter = null,
         ?callable $preCallFilter = null,
@@ -68,7 +69,7 @@ trait ObserverTrait
                 }
             }
 
-            $result = $listener->process($payload);
+            $result = $listener->process($event);
 
             if (null !== $postCallFilter && $return = $postCallFilter($result)) {
                 if ($return === ObserverInterface::CALL_LISTENER_BREAK) {
@@ -103,7 +104,6 @@ trait ObserverTrait
     public function registerListener(string $fQCN): void
     {
         if (!is_subclass_of($fQCN, ListenerInterface::class)) {
-            /** @noinspection PhpUnhandledExceptionInspection */
             throw new NoValidListenerException();
         }
 

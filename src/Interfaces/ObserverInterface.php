@@ -28,14 +28,14 @@ interface ObserverInterface
      * ObserverInterface::CALL_LISTENER_CONTINUE the next listener will be
      * processed.
      *
-     * @param $payload
-     * @param int|null $type
+     * @param BaseEventInterface                          $event
+     * @param int|null                                    $type
      * @param callable|null $preInitFilter  supplied args $fQCN
      * @param callable|null $preCallFilter  supplied args $instance of listener
      * @param callable|null $postCallFilter supplied args $result of listener call
      */
     public function callListeners(
-        $payload,
+        BaseEventInterface $event,
         ?int $type = null,
         ?callable $preInitFilter = null,
         ?callable $preCallFilter = null,

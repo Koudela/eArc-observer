@@ -36,9 +36,9 @@ interface ListenerInterface
     /**
      * Method which is called by the Observer the EventListener is attached to.
      *
-     * @param mixed[] $payload
+     * @param BaseEventInterface $event
      *
      * @return mixed|void
      */
-    public function process(...$payload);
+    public function process(BaseEventInterface $event);
 }

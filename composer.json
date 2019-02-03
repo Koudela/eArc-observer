@@ -14,8 +14,7 @@
   "prefer-stable" : true,
   "require": {
     "php": "^7.2",
-    "earc/payload-container": "^0.1.0",
-    "earc/tree": "dev-master"
+    "earc/event": "dev-master"
   },
   "autoload": {
     "psr-4" : {

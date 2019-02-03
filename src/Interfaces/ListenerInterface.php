@@ -11,14 +11,16 @@
 
 namespace eArc\Observer\Interfaces;
 
+use eArc\Event\Interfaces\EventInterface;
+
 /**
  * Interface a class must implement to become an listener.
  */
 interface ListenerInterface
 {
     /**
-     * Only if the types of the listener matches the type of the listener stack
-     * call it gets called. A type must be the power of 2. Null matches all
+     * The types of the listener. They must match the type of the listener stack
+     * call to get called. A type must be the power of 2. Null matches all
      * types. (For example 11 would match the types 1, 2 and 8.)
      *
      * @return int|null
@@ -36,9 +38,9 @@ interface ListenerInterface
     /**
      * Method which is called by the Observer the EventListener is attached to.
      *
-     * @param BaseEventInterface $event
+     * @param EventInterface $event
      *
      * @return mixed|void
      */
-    public function process(BaseEventInterface $event);
+    public function process(EventInterface $event);
 }

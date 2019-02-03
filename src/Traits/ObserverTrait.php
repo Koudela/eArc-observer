@@ -11,8 +11,8 @@
 
 namespace eArc\Observer\Traits;
 
+use eArc\Event\Interfaces\EventInterface;
 use eArc\Observer\Exception\NoValidListenerException;
-use eArc\Observer\Interfaces\BaseEventInterface;
 use eArc\Observer\Interfaces\ListenerInterface;
 use eArc\Observer\Interfaces\ObserverInterface;
 
@@ -31,11 +31,11 @@ trait ObserverTrait
      * @inheritdoc
      */
     public function callListeners(
-        BaseEventInterface $event,
+        EventInterface $event,
         ?int $type = null,
-        ?callable $preInitFilter = null,
-        ?callable $preCallFilter = null,
-        ?callable $postCallFilter = null
+        ?callable $preInitLCH = null,
+        ?callable $preCallLCH = null,
+        ?callable $postCallLCH = null
     ): void
     {
         asort($this->listenerPatience, SORT_NUMERIC);
@@ -47,7 +47,7 @@ trait ObserverTrait
                 continue;
             }
 
-            if (null !== $preInitFilter && $return = $preInitFilter($fQCN)) {
+            if (null !== $preInitLCH && $return = $preInitLCH($fQCN)) {
                 if ($return === ObserverInterface::CALL_LISTENER_BREAK) {
                     break;
                 }
@@ -59,7 +59,7 @@ trait ObserverTrait
 
             $listener = $this->getListener($fQCN);
 
-            if (null !== $preCallFilter && $return = $preCallFilter($listener)) {
+            if (null !== $preCallLCH && $return = $preCallLCH($listener)) {
                 if ($return === ObserverInterface::CALL_LISTENER_BREAK) {
                     break;
                 }
@@ -71,7 +71,7 @@ trait ObserverTrait
 
             $result = $listener->process($event);
 
-            if (null !== $postCallFilter && $return = $postCallFilter($result)) {
+            if (null !== $postCallLCH && $return = $postCallLCH($result)) {
                 if ($return === ObserverInterface::CALL_LISTENER_BREAK) {
                     break;
                 }
@@ -81,8 +81,7 @@ trait ObserverTrait
 
     /**
      * Get the listener from the instances or if it fails try to build the
-     * class. (A class not part of the container is saved to a stack and thus
-     * never build a second time by this function.)
+     * class.
      *
      * @param string $fQCN
      *

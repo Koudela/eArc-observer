@@ -71,7 +71,7 @@ trait ObserverTrait
 
             $result = $listener->process($event);
 
-            if (null !== $postCallLCH && $return = $postCallLCH($result)) {
+            if (null !== $postCallLCH && $return = $postCallLCH($listener, $result)) {
                 if ($return === ObserverInterface::CALL_LISTENER_BREAK) {
                     break;
                 }

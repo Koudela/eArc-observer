@@ -33,7 +33,7 @@ interface ObserverInterface
      * @param int|null       $types
      * @param callable|null  $preInitLCH  supplied args $fQCN
      * @param callable|null  $preCallLCH  supplied args $instance of listener
-     * @param callable|null  $postCallLCH supplied args $result of listener call
+     * @param callable|null  $postCallLCH supplied args $instance, $result of listener call
      */
     public function callListeners(
         EventInterface $event,

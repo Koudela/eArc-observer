@@ -3,7 +3,7 @@
   "description": "eArc - the explicit architecture framework - observer blueprint",
   "type": "library",
   "license": "MIT",
-  "version": "0.0-BETA",
+  "version": "0.0",
   "authors": [
     {
       "name": "Thomas Koudela",
@@ -14,7 +14,7 @@
   "prefer-stable" : true,
   "require": {
     "php": "^7.2",
-    "earc/event": "dev-master"
+    "earc/event": "0.0"
   },
   "autoload": {
     "psr-4" : {

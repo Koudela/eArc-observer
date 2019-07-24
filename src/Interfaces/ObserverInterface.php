@@ -1,7 +1,7 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * e-Arc Framework - the explicit Architecture Framework
- * observer blueprint
+ * psr-14 compatible observer blueprint
  *
  * @package earc/observer
  * @link https://github.com/Koudela/eArc-observer/
@@ -11,47 +11,23 @@
 
 namespace eArc\Observer\Interfaces;
 
-use eArc\Event\Interfaces\EventInterface;
-use eArc\Observer\Exception\NoValidListenerException;
+use Psr\EventDispatcher\ListenerProviderInterface;
 
 /**
  * Observer defines the listenable nature of an object.
  */
-interface ObserverInterface
+interface ObserverInterface extends ListenerProviderInterface
 {
-    const CALL_LISTENER_BREAK = 1;
-    const CALL_LISTENER_CONTINUE = 2;
-
     /**
-     * Calls all registered listeners that match one of the types sorted by
-     * their patience until either all are called or a life cycle hook returns a
-     * ObserverInterface::CALL_LISTENER_BREAK. If a life cycle hook returns a
-     * ObserverInterface::CALL_LISTENER_CONTINUE the next listener will be
-     * processed.
-     *
-     * @param EventInterface $event
-     * @param int|null       $types
-     * @param callable|null  $preInitLCH  supplied args $fQCN
-     * @param callable|null  $preCallLCH  supplied args $instance of listener
-     * @param callable|null  $postCallLCH supplied args $instance, $result of listener call
-     */
-    public function callListeners(
-        EventInterface $event,
-        ?int $types = null,
-        ?callable $preInitLCH = null,
-        ?callable $preCallLCH = null,
-        ?callable $postCallLCH = null
-    ): void;
-
-    /**
-     * Registers a listener by its fully qualified class name. (This way the
-     * listener does not need to get initialized before it actually get called.)
+     * Registers a listener by its fully qualified class name. (This way the listener
+     * does not need to get initialized before it actually get called.) There may
+     * be passed a float as second argument representing the patience of the listener.
+     * The higher the patience the later the listener is called by the dispatcher.
      *
      * @param string $fQCN
-     *
-     * @throws NoValidListenerException
+     * @param float  $patience
      */
-    public function registerListener(string $fQCN): void;
+    public function registerListener(string $fQCN, float $patience=0): void;
 
     /**
      * Unregisters a listener by its fully qualified class name.

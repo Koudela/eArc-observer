@@ -1,7 +1,7 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * e-Arc Framework - the explicit Architecture Framework
- * observer blueprint
+ * psr-14 compatible observer blueprint
  *
  * @package earc/observer
  * @link https://github.com/Koudela/eArc-observer/
@@ -11,11 +11,9 @@
 
 namespace eArc\Observer\Exception;
 
-use Exception;
-
 /**
- * Generic observer exception.
+ * Supplied argument does not implement the event interface.
  */
-class ObserverException extends Exception
+class NoValidEventException extends BaseException
 {
 }

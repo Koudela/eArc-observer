@@ -1,9 +1,9 @@
 {
   "name": "earc/observer",
-  "description": "eArc - the explicit architecture framework - observer blueprint",
+  "description": "eArc - the explicit architecture framework - psr-14 compatible observer blueprint",
   "type": "library",
   "license": "MIT",
-  "version": "0.0",
+  "version": "1.0",
   "authors": [
     {
       "name": "Thomas Koudela",
@@ -14,7 +14,8 @@
   "prefer-stable" : true,
   "require": {
     "php": "^7.2",
-    "earc/event": "0.0"
+    "psr/event-dispatcher": "^1.0",
+    "earc/di": "^2.1"
   },
   "autoload": {
     "psr-4" : {

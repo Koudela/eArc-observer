@@ -22,7 +22,7 @@ class Dispatcher implements EventDispatcherInterface
 
     public function __construct()
     {
-        $this->observer = class_exists(di_static(ObserverInterface::class))
+        $this->observer = di_is_decorated(ObserverInterface::class)
             ? di_get(ObserverInterface::class)
             : di_get(Observer::class);
     }

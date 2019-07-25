@@ -52,14 +52,25 @@ di_clear_tags(SomeListener::class, Observer::class);
 ```
 
 To dispatch your event use the dispatcher
+
 ```php
 use eArc\Observer\Dispatcher;
 
 $dispatcher = di_get(Dispatcher::class);
-$dispatcher->dispatch($event); 
+$event = $dispatcher->dispatch($event); 
 ```
 
+It returns the event that MAY be modified by the listener.
+
+## advanced usage
+
+
+
 ## releases
+
+### release v1.0.1
+
+- added listener interface
 
 ### release v1.0
 - rewrite to be psr-14 compatible

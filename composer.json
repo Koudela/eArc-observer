@@ -3,7 +3,7 @@
   "description": "eArc - the explicit architecture framework - psr-14 compatible observer blueprint",
   "type": "library",
   "license": "MIT",
-  "version": "1.0",
+  "version": "1.0.1",
   "authors": [
     {
       "name": "Thomas Koudela",

@@ -64,7 +64,18 @@ It returns the event that MAY be modified by the listener.
 
 ## advanced usage
 
+If you want to change the behaviour of the observer you can decorate it by any
+class implementing the `ObserverInterface`.
 
+```php
+use \eArc\Observer\Interfaces\ObserverInterface;
+
+di_decorate(ObserverInterface::class, TheNewObserver::class);
+```
+
+Please note that every library in your project, using earc/observer, uses the
+decorating class thereafter. Therefore you might be forced to write your own 
+dispatcher too. All you need to do is implementing the `DispatcherInterface`.  
 
 ## releases
 

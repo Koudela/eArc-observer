@@ -41,7 +41,7 @@ class Observer implements ObserverInterface
         foreach($this->listener as $fQCN => $patience) {
             foreach($event::getApplicableListener() as $base) {
                 if (is_subclass_of($fQCN, $base)) {
-                    yield [$fQCN => di_get($fQCN), 'process'];
+                    yield [di_get($fQCN), 'process'];
 
                     break;
                 };

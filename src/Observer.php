@@ -23,7 +23,7 @@ class Observer implements ObserverInterface
     public function __construct()
     {
         foreach(di_get_tagged(static::class) as $fQCN => $patience) {
-            $this->registerListener($fQCN, intval($patience));
+            $this->registerListener($fQCN, floatval($patience));
         }
     }
 

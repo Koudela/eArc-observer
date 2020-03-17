@@ -19,8 +19,8 @@ use eArc\Observer\Interfaces\ListenerInterface;
  */
 class Event implements EventInterface
 {
-    /** @var string|null the fully qualified class name */
-    public $isTouchedByListener = null;
+    /** @var string[] the fully qualified class names */
+    public $isTouchedByListener = [];
 
     /**
      * @inheritDoc

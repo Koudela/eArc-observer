@@ -25,7 +25,7 @@ class Listener implements ListenerInterface
     public function process(EventInterface $event): void
     {
         if ($event instanceof Event) {
-            $event->isTouchedByListener = get_class($this);
+            $event->isTouchedByListener[] = get_class($this);
         }
     }
 }

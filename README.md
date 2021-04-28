@@ -65,7 +65,7 @@ or use the tagging of earc/di (if the observer instance is not build yet)
 ```php
 use eArc\Observer\Observer;
 
-di_tag(SomeListener::class, Observer::class); 
+di_tag(Observer::class, SomeListener::class); 
 ```
 
 Hint: Tagging does not initialize the observer nor does it autoload the observer class.
@@ -89,7 +89,7 @@ or (if the observer instance is not build yet)
 ```php
 use eArc\Observer\Observer;
 
-di_tag(SomeListener::class, Observer::class, -12.7);
+di_tag(Observer::class, SomeListener::class, -12.7);
 ```
 
 ### Unregister Listeners
@@ -140,22 +140,26 @@ dispatcher too. All you need to do is implementing the `DispatcherInterface`.
 
 ## releases
 
-### release V1.0.3
+### release 1.1
+
+- PHP ^7.2 || ^8.0
+
+### release 1.0.3
 
 - fix patience via tag converts float to int
 - documentation completed
 - test coverage 100% of documented features
 
-### release V1.0.2
+### release 1.0.2
 
 - fix php does not recognise ['string' => $obj, 'method'] as callable.
 
-### release v1.0.1
+### release 1.0.1
 
 - added listener interface
 
-### release v1.0
+### release 1.0
 - rewrite to be psr-14 compatible
 
-### release v0.0
+### release 0.0
 - initial release

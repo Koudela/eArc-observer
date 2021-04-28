@@ -5,7 +5,7 @@
  *
  * @package earc/observer
  * @link https://github.com/Koudela/eArc-observer/
- * @copyright Copyright (c) 2018-2020 Thomas Koudela
+ * @copyright Copyright (c) 2018-2021 Thomas Koudela
  * @license http://opensource.org/licenses/MIT MIT License
  */
 
@@ -33,7 +33,7 @@ class Observer implements ObserverInterface
     public function getListenersForEvent(object $event): iterable
     {
         if (!is_subclass_of($event, EventInterface::class)) {
-            throw new NoValidEventException(sprintf('Event %s has to implement the %s', get_class($event), EventInterface::class));
+            throw new NoValidEventException(sprintf('{acd9a8dc-b222-4f68-9dfd-e23fce225505} Event %s has to implement the %s', get_class($event), EventInterface::class));
         }
 
         asort($this->listener, SORT_NUMERIC);

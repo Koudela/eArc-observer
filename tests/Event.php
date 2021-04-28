@@ -5,11 +5,11 @@
  *
  * @package earc/observer
  * @link https://github.com/Koudela/eArc-observer/
- * @copyright Copyright (c) 2018-2019 Thomas Koudela
+ * @copyright Copyright (c) 2018-2021 Thomas Koudela
  * @license http://opensource.org/licenses/MIT MIT License
  */
 
-namespace eArc\ObserverTests;
+namespace eArc\ObserverTest;
 
 use eArc\Observer\Interfaces\EventInterface;
 use eArc\Observer\Interfaces\ListenerInterface;

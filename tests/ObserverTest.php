@@ -5,7 +5,7 @@
  *
  * @package earc/observer
  * @link https://github.com/Koudela/eArc-observer/
- * @copyright Copyright (c) 2018-2020 Thomas Koudela
+ * @copyright Copyright (c) 2018-2021 Thomas Koudela
  * @license http://opensource.org/licenses/MIT MIT License
  */
 
@@ -16,10 +16,10 @@ use eArc\DI\Exceptions\InvalidArgumentException;
 use eArc\Observer\Dispatcher;
 use eArc\Observer\Interfaces\ObserverInterface;
 use eArc\Observer\Observer;
-use eArc\ObserverTests\Event;
-use eArc\ObserverTests\Listener;
-use eArc\ObserverTests\SecondListener;
-use eArc\ObserverTests\ThirdListener;
+use eArc\ObserverTest\Event;
+use eArc\ObserverTest\Listener;
+use eArc\ObserverTest\SecondListener;
+use eArc\ObserverTest\ThirdListener;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -87,7 +87,7 @@ class ObserverTest extends TestCase
     protected function runRegisterListenerByTagAssertions()
     {
         di_clear_cache();
-        di_tag(Listener::class, Observer::class);
+        di_tag(Observer::class, Listener::class);
         $event = $this->dispatchEvent();
         $this->assertEquals(Listener::class, $event->isTouchedByListener[0]);
     }
@@ -95,7 +95,7 @@ class ObserverTest extends TestCase
     protected function runUnregisterListenerByTagAssertions()
     {
         di_clear_cache();
-        di_tag(Listener::class, Observer::class);
+        di_tag(Observer::class, Listener::class);
         di_clear_tags(Observer::class, Listener::class);
         $event = $this->dispatchEvent();
         $this->assertTrue(empty($event->isTouchedByListener));
@@ -118,9 +118,9 @@ class ObserverTest extends TestCase
     protected function runTaggedPatienceAssertions()
     {
         di_clear_cache();
-        di_tag(Listener::class, Observer::class, 2.2);
-        di_tag(SecondListener::class, Observer::class,-2.8);
-        di_tag(ThirdListener::class, Observer::class,2.1);
+        di_tag(Observer::class, Listener::class, 2.2);
+        di_tag(Observer::class, SecondListener::class,-2.8);
+        di_tag(Observer::class, ThirdListener::class,2.1);
         $event = $this->dispatchEvent();
         $this->assertEquals(SecondListener::class, $event->isTouchedByListener[0]);
         $this->assertEquals(ThirdListener::class, $event->isTouchedByListener[1]);
